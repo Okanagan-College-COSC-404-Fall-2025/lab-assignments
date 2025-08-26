@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0100)https://mymoodle.okanagan.bc.ca/pluginfile.php/3037891/mod_resource/content/8/COSC404_Lab1_2022.html -->
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>COSC 404 Lab 1 -SQL Developer and SQL Review</title>
+  </head>
+  <body style="" link="blue" lang="EN-US" vlink="purple" text="#000000" bgcolor="#ffffcc" alink="#000099" data-new-gr-c-s-check-loaded="14.1250.0" data-gr-ext-installed="">
+    <center><b><font size="+1">Computer Science 404</font></b><br>
+      <b><font size="+1">Laboratory 1<br>
+          Introduction to SQL Developer and SQL Review<br>
+        </font></b><b>Due: Thursday September 29, 2022 at 11:59pm<br>
+      </b></center>
+    <hr width="100%"> <br>
+    <font size="+1"><b>Overview</b><br>
+      <br>
+      The purpose of this lab is to:<br>
+    </font>
+    <ul>
+      <li><font size="+1">introduce you to <i>SQL Developer</i> <br>
+        </font></li>
+      <li><font size="+1">practice SQL</font></li>
+      <li><font size="+1">review/practice normalization<br>
+        </font></li>
+    </ul>
+    <font size="+1"> <br>
+      <font size="+2"><font size="+1"><b>Part One: Introduction to SQL
+            Developer</b></font><b><br>
+        </b></font><br>
+      SQL Developer is a free tool provided by Oracle to create and work
+      with an Oracle database.<br>
+      <br>
+      Later, you can visit this Oracle site for SQL Developer get an
+      overview of SQL Developer's features.<br>
+      <ul>
+        <li><a href="https://www.oracle.com/tools/technologies/whatis-sql-developer.html">https://www.oracle.com/tools/technologies/whatis-sql-developer.html</a><br>
+        </li>
+      </ul>
+      <ul>
+      </ul>
+      <br>
+      <span style="font-weight: bold;">Installing SQL Developer</span><br style="font-weight: bold;">
+      <br>
+      If you plan on installing SQL Developer on your personal computer,
+      you can download it from this site:<br>
+      <ul>
+        <li><a href="https://www.oracle.com/tools/downloads/sqldev-downloads.html">https://www.oracle.com/tools/downloads/sqldev-downloads.html</a></li>
+      </ul>
+      Just like when you installed the SQL Instant Client, you will need
+      to sign in to your Oracle Account to get the appropriate
+      downloads.<br>
+      <ul>
+      </ul>
+      <br>
+    </font><span style="font-weight: bold;">Getting Started Using SQL
+      Developer</span><font size="+1"><big><br style="font-weight:
+          bold;">
+      </big><br>
+      Start SQL Developer. After a few moments, you should see a window
+      that appears similar to the figure below. If you see the Configure
+      File Type Associations dialog box, you can just click OK to
+      dismiss it.<br>
+      <br>
+      <img style=" width: 624px; height: 511px;" alt="Figure 1" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab6Fig1.png"><br>
+      <br>
+      The area on your left shows the so-called connections that have
+      been configured and saved to the current installation of SQL
+      Developer. The connections shown in the figure will not be the
+      same as those in the lab nor your personal installation. Likely,
+      there will be no saved connections. You will need to add a
+      connection configured to our <span style="font-weight: bold;">klo-cis-ora-1.okanagan.bc.ca</span>
+      server for this to work for you.<br>
+      <br>
+      Note that each saved <span style="font-style: italic;">connection</span>
+      is associated with a specific schema in a specific database. You
+      can configure and save connections to many different databases on
+      many different servers as long as you have a network connection to
+      the server and you have the username and password associated with
+      the schema on the database. <br>
+      <blockquote><span style="font-weight: bold;">Remember: Whenever
+          you want to connect a personal computer to a server at
+          Okanagan College, you will need to first connect to Okanagan
+          College via your student VPN. IT Services must set up this
+          account for you and is done at the request of your instructor.
+          This should have been completed sometime during the first week
+          of classes, if you didn't already have this VPN for some other
+          reason. </span><br>
+        <span style="font-weight: bold;"></span></blockquote>
+      <span style="font-weight: bold;"><br>
+        Create a Connection to Oracle</span><br style="font-weight:
+        bold;">
+      <span style="font-weight: bold;"> </span><br>
+      Before we can use SQL Developer with our COSC 404 database, we
+      need to create a connection to the database. <br>
+      <ul>
+        <li>Right-click on <span style="font-weight: bold;">Connections</span>
+          and select <span style="font-weight: bold;">New Connection</span>
+          from the shortcut menu.<br>
+          <br>
+          <img style=" width: 279px; height: 279px;" alt="Fig 2" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig2-SQLDev.png"><br>
+          <br>
+        </li>
+        <li>In the <span style="font-weight: bold;">New / Select
+            Database Connection</span> dialog box, fill in the fields as
+          shown in the figure below. Be sure to use your Oracle server
+          username and password (provided by your instructor) and
+          provide a Connection Name that suits you.<br>
+          <br>
+          <img style=" width: 750px; height: 390px;" alt="Fig 3" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig3-SQLDevNewConnection.png"><br>
+          <br>
+        </li>
+        <li>If you are working from your personal computer remember that
+          you have to open your VPN connection first.<br>
+        </li>
+        <br>
+        <li>You can click the <span style="font-weight: bold;">Test</span>
+          button to make sure a connection can be established. If a
+          message appears indicating that the connection could not be
+          established, open the <span style="font-weight: bold;">New /
+            Select Database Connection</span> dialog box for the
+          connection and verify the data that you entered. You can
+          re-open this dialog box by right-clicking on the name of the
+          connection and then selecting <span style="font-weight:
+            bold;">Properties</span> from the shortcut list.<br>
+          <br>
+          <img style=" width: 750px; height: 389px;" alt="Fig 4" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig4-SQLDevConnectionSuccess.png"><br>
+          <br>
+        </li>
+        <li>Remember to click Save so that your connection will be
+          remembered.<br>
+        </li>
+      </ul>
+      <br>
+      <span style="font-weight: bold;"></span><span style="font-weight:
+        bold;">Connecting to Your COSC 404 Schema</span><br style="font-weight: bold;">
+      <br>
+      Once a <span style="font-style: italic;">connection</span> has
+      been configured and saved, you connect to your COSC 404 schema by
+      double-clicking the name of the associated connection or by
+      right-clicking the connection name and selecting <b>Connect</b>
+      from the shortcut menu.<br>
+      <br>
+      <img style=" width: 259px; height: 257px;" alt="Fig 5" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig5-SQLDevConnection.png"><br>
+      <br>
+      After a few moments you will be connected and you will now have
+      access to all the database objects in your schema. The figure
+      below shows the SQL Developer window after connecting using the
+      highlighted connection.<br>
+      <br>
+      <img style=" width: 902px; height: 659px;" alt="Fig 6" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig6-SQLDevSchemaView.png"><br>
+      <br>
+      You can see that there are numerous items listed for this
+      connection starting with Tables followed by Views. If you click
+      the plus symbol beside the Tables item. You will see a listing of
+      all of the tables in this schema. Click the plus symbol beside
+      tables. The image below shows 9 tables for the sample user.<br>
+      <br>
+      <img style=" width: 902px; height: 659px;" alt="Fig 7" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig7-SQLDevTables.png"><br>
+      <br>
+      I have copied the 8 of the 9 tables into your schema.<br>
+      <br>
+      To view details of </font><font size="+1"><font size="+1">the
+        L4_EMPLOYEES </font>table you would click on the table.<br>
+      <br>
+      <img style=" width: 902px; height: 314px;" alt="Fig 8" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig8-SQLDevTables2.png"><br>
+      <br>
+      The details associated with columns for this table are shown (just
+      like using the <span style="font-weight: bold;">desc</span>
+      SQL*Plus command). In fact, once a table is selected, there are
+      over 10 tabs you can select from that will show information about
+      the table. The default selection is the <span style="font-weight:
+        bold;">Columns</span> tab as shown above. Try clicking the next
+      tab, the <span style="font-weight: bold;">Data</span> tab.<br>
+      <br>
+      <img style=" width: 902px; height: 388px;" alt="Fig 10" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig9-SQLDevTablesData.png"><br>
+      <br>
+      You see that this tab displays the data in the A4_EMPLOYEES table.
+      You can also examine the constraints for this table, triggers and
+      many other details.<br>
+      <br>
+      You should also notice that all of these detail tabs are residing
+      on another tabbed page named for the table as shown below.<br>
+      <br>
+      <img style=" width: 902px; height: 248px;" alt="Fig 10" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig10-SQLDevTablesTabs.png"><br>
+      <br>
+      You can return to the original view of your connection by clicking
+      the associated tab as shown below:<br>
+      <br>
+      <img style=" width: 902px; height: 250px;" alt="Fig 11" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig11-SQLDevTablesOrigView.png"><br>
+      <br>
+      Notice that the area on this tabbed sheet has two tabs you can
+      choose from - <span style="font-style: italic;">Worksheet</span>
+      and <span style="font-style: italic;">Query Builder</span>. Be
+      sure that <span style="font-style: italic;">Worksheet</span> is
+      selected. The Worksheet area is like an editor area that you can
+      use to develop queries. For example, look at the query created
+      below. You can create your own.<br>
+      <br>
+      <img alt="Fig 12" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig12-SQLDevWorksheetTab.png"><br>
+      <br>
+      Once the query is created it is ready to run. All you need to do
+      is click the <span style="font-weight: bold;">Run</span> button
+      (circled in the above figure) to run the query and see the
+      results. Click the <span style="font-weight: bold;">Run</span>
+      button.<br>
+      <br>
+      <img style=" width: 902px; height: 528px;" alt="Fig 13" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig13-SQLDevWorksheetRun.png"><br>
+      <br>
+      The results of the query are displayed. You can remove the output
+      by closing the Query Result table.<br>
+      <br>
+      <img style=" width: 902px; height: 528px;" alt="Fig 14" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig14-SQLDevWorksheetRun.png"><br>
+      <br>
+      You can write multiple SQL queries in the worksheet area. To run
+      just one of them, highlight the query you want to run and click
+      the run button as shown in the example below. (You can also run
+      the highlighted query by pressing ctrl-Enter).<br>
+      <br>
+      <img style=" width: 902px; height: 614px;" alt="Fig 15" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig15-SQLDevWorksheetRun.png"><br>
+      <br>
+      In fact, you can develop extensive scripts by sequencing a set of
+      statements together in the worksheet area. To run the script (the
+      entire worksheet area) you can click the Run Script button (or
+      press F5).<br>
+      <br>
+      <img style=" width: 903px; height: 927px;" alt="Fig 17" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig17-SQLDevWorksheetScript.png"><br>
+      <br>
+      To save your script into a file that can be run later, click the
+      Save button.<br>
+      <br>
+      <img style=" width: 601px; height: 451px;" alt="Fig 18" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig18-SQLDevSaveScript.png"><br>
+      <br>
+      <span style="font-weight: bold;">Data Dictionary</span><br>
+      <br>
+      You can explore the information stored in the data dictionary
+      tables by browsing the various items in the navigation area. <br>
+      <br>
+      <img style=" width: 902px; height: 927px;" alt="Fig 19" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig19-SQLDevDataDictionary.png"><br>
+      <br>
+      For example, if you want to learn about the constraints that have
+      been applied to a table, you can select the table in the
+      navigation area and then click the constraints tab. No typical
+      constraints should exist on the tables in your schema as they were
+      put there without constraints, so you will not see the same things
+      shown in the following image.<br>
+      <br>
+      In the figure below, you can see that the L4_ORDERS table has two
+      named constraints - a primary key constraint and a foreign key
+      constraint. <span style="font-style: italic;">ID</span> in the
+      L4_ORDERS table is its primary key, and <span style="font-style:
+        italic;">emp_id</span> in the L4_ORDERS table is a foreign key
+      referencing the primary key, <span style="font-style: italic;">ID</span>,
+      of the L4_EMPLOYEES table. The primary key constraint of the
+      L4_EMPLOYEES table is a named constraint called L4_EMPLOYEES_PK.
+      Notice that in the R_CONSTRAINT_NAME column of the foreign key
+      constraint the L4_EMPLOYEES_PK constraint is shown.<br>
+      <br>
+      <img style=" width: 981px; height: 435px;" alt="Fig 20" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig20-SQLDevConstraints.png"><br>
+      <br>
+      <span style="font-weight: bold;">Views</span><br style="font-weight: bold;">
+      <br>
+      We have seen that the data dictionary stores text associated with
+      a view in the <span style="font-weight: bold;">USER_VIEWS</span>
+      table. You can access this text by selecting the view you want in
+      the navigation area and then selecting the Details tab. You will
+      notice that the text is stored as a value in one of the fields.
+      However, it is not too readable. I haven't populated your schema
+      with any views. If you want to experiment with this, you should
+      create a view.<br>
+      <br>
+      <img style=" width: 981px; height: 399px;" alt="Fig. 21" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig21-SQLDevViewText.png"><br>
+      <br>
+      You can ask SQL Developer to generate the SQL statement that
+      creates the view by clicking the SQL tab. If you try it with a
+      view in your schema, after a few moments you will see the SQL
+      statement for the view has been generated for you as shown below.<br>
+      <br>
+      <img style=" width: 981px; height: 400px;" alt="Fig. 22" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig22-SQLDevViewText2.png"><br>
+      <br>
+      <span style="font-weight: bold;">Triggers</span><br style="font-weight: bold;">
+      <br>
+      I have not populated your schema with any triggers, so just read
+      along in this section.<br>
+      <br>
+      Data dictionary information is also available regarding your
+      triggers. Expand the Triggers item in the navigation area to list
+      the triggers in your schema. You can click the various tabs to get
+      information about the trigger selected in the navigation area. If
+      you click the Code tab, you will see the PL/SQL code of the
+      associated trigger, as shown in the image below.<br>
+      <br>
+      <img style=" width: 1038px; height: 673px;" alt="Fig. 23" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab9Fig23-SQLDevViewTriggers.png"><br>
+      <br>
+      As you can see, everything that you could do in the SQL*Plus
+      Client environment, you can do in the SQL Developer environment.
+      In fact, you can do much more in the SQL Developer environment.<br>
+      <br>
+      Use SQL Developer to browse around your schema to learn more about
+      SQL Developer.<br>
+      <br>
+      <span style="font-weight: bold;">Disconnecting From Your Database</span><br>
+      <br>
+      To disconnect from your database right-click on your connection in
+      the <span style="font-weight: bold;">Connections</span> pane. You
+      should see a <span style="font-weight: bold;">Disconnect</span>
+      item on the shortcut menu. This lets you know that you are
+      connected. To disconnect, just select Disconnect from the shortcut
+      menu. You may be prompted to commit any uncommitted changes to
+      your database as follows:<br>
+      <br>
+      <img style=" width: 333px; height: 183px;" alt="Figure 15" src="./COSC 404 Lab 1 -SQL Developer and SQL Review_files/Lab6Fig15.png"><br>
+      <br>
+      <br>
+      <span style="font-weight: bold;">Final Note About SQL Developer</span><br>
+      <br>
+      We have just scratched the surface of SQL Developer. It is a
+      professional tool that can make working with and administration of
+      an Oracle database much easier. <br>
+      <br>
+      <br>
+      <b><font size="+1">Part Two: SQL Review Exercises</font></b><br>
+      <br>
+      <font size="+1">The purpose of this part of your assignment is to
+        review SQL and normalization. During the first activity you will
+        implement a database in your schema. During the second and third
+        activities you will write SQL queries to answer several
+        questions.<br>
+        <ol start="1">
+          <li>Consider a flawed database that keeps track of the
+            information about the departments and divisions within an
+            organization. The database has the following schema (#
+            indicates primary key column(s)):</li>
+        </ol>
+        <ul>
+          <ul type="disc">
+            <li> L1_DEPARTMENTS(#ID, mgr_ID, div_ID, room, bldg_CODE, <font size="+1"> dept_campus</font>)</li>
+            <li><font size="+1">L1_</font>DIVISIONS(#ID, div_name, <font size="+1">bldg_CODE, </font> <font size="+1"><font size="+1">bldg_name, div_</font></font><font size="+1">campus,
+
+
+
+              </font>director_ID)<br>
+            </li>
+            <li><font size="+1">L1_</font>ROOMS(#ROOM_NO, #bldg_CODE,
+              status, area)</li>
+            <li><font size="+1"><font size="+1">L1_</font>BUILDINGS(#CODE,
+bldg_
+
+                name, campus)</font></li>
+            <li><font size="+1"><font size="+1">L1_</font>EMPLOYEES(#ID,
+                name, position, dept_ID)</font> </li>
+          </ul>
+        </ul>
+        <blockquote> Here are some business rules for the organization
+          (entities are indicated using capitalization):<br>
+        </blockquote>
+        <ul>
+          <ul type="disc">
+            <li>The organization is located at a number of so-called
+              campuses. Each campus is identified by its unique name.</li>
+            <li>Departments are grouped into Divisions. Each Division
+              can oversee many Departments, but each Department is part
+              of only a single Division.</li>
+            <li>Each Department has an office. Although the staff in
+              each Department can occupy many offices, only one office
+              is considered the Department's location. This means that a
+              single Department is located at the campus associated with
+              the Department's office location (i.e. its office's Room
+              location).</li>
+            <li>Each Room is located in a Building.<br>
+            </li>
+            <li>Each room has a ROOM_NO unique to the Building within
+              which it is located.</li>
+            <li>Each building is located on one of the campuses.</li>
+            <li>The Departments that comprise a Division can be located
+              in different buildings (which may be on different
+              campuses). However, each Division must be located in the
+              same building as one of it's departments.<br>
+            </li>
+          </ul>
+        </ul>
+        <blockquote> To help you further understand the database, here
+          is some more information about columns of the tables.<br>
+        </blockquote>
+        <blockquote>
+          <ul>
+            <li><font size="+1">L1_</font>DEPARTMENTS table: <i>div_ID</i>
+              refers to the ID of a Division. <i>room</i> and <i>bldg_CODE</i>
+              together refer to a specific Room listed in the ROOMS
+              table, <i>dept_campus</i> refers to the campus on which
+              that department's office is located. mgr_ID is the ID of
+              the employee who manages the department.<br>
+            </li>
+            <li><font size="+1">L1_</font>DIVISIONS table: <i>div_campus</i>
+              refers to the campus' unique&nbsp;campus name. <font size="+1"><font size="+1"> <i>director_id</i> refers to
+                  the employee ID of the Division's director. </font></font><font size="+1"><font size="+1"><font size="+1"><i>bldg_CODE</i>
+                    and </font><font size="+1"><font size="+1"><i>bldg_name</i>
+                      are the CODE and name of the building that is
+                      associated with the division's location. <i>div_</i></font></font><font size="+1"><i>campus</i> is the campus on which the
+                    division is located.<br>
+                  </font></font></font></li>
+            <li><font size="+1">L1_</font>ROOMS table: <i>ROOM_NO</i>
+              and <i>bldg_CODE</i> uniquely identify a Room across the
+              organization. <font size="+1"><i>ROOM_NO</i> refers to
+                the room number of a room within a building. </font><i>bldg_CODE</i>
+              refers to <i>CODE</i> in the <font size="+1">L1_</font>BUILDINGS
+
+
+
+
+
+
+              table. <i>status</i> refers to one of five
+              single-character values ('O' - occupied office; 'U' -
+              unoccupied office; 'L' - laboratory; 'T' - technical
+              services; 'S' - storage). <i>area</i> refers to the <b>square
+
+                footage</b> of the room.<br>
+            </li>
+            <li><font size="+1">L1_</font>BUILDINGS table: <i>CODE</i>
+              is a unique 3-letter identifier for a Building. <i>bldg_name</i>
+              refers to a building's name. <i>campus</i> refers to the
+              name of the campus that the Building is on.</li>
+          </ul>
+          <b>Exercise:</b> Implement the above database by doing the
+          following:<br>
+          <ol>
+            <li>(2 marks) Normalize the database of five tables
+              presented above. There is at least one table that is not
+              normalized. <br>
+              <br>
+            </li>
+            <li>(2 marks) Create the tables specified in your <font size="+1">normalized </font>schema from question 1. Be
+              sure to name the tables as presented above. If you create
+              a new table when normalizing, be sure to name the table
+              appropriately with the prefix "<font size="+1">L1_".</font><br>
+              <br>
+            </li>
+            <li>(3 marks) Apply appropriate integrity constraints. Be
+              sure to name all of your constraints with a name that
+              starts with 'LAB1_'. Only constraints that are named with
+              a 'LAB1_' prefix will receive marks.<br>
+              <br>
+            </li>
+            <li>(1 mark) Populate your tables using the data from these
+              tables (located in the LABDATA schema): DEPTS_DATA,&nbsp;
+              ROOMS_DATA, and L1_EMPLOYEES.<br>
+              <br>
+            </li>
+          </ol>
+        </blockquote>
+        <ol start="2">
+          <li> Create two views as described below:</li>
+        </ol>
+        <ul>
+          <ul>
+            <li>(2 marks) Create view LAB1_A that lists for each
+              Division ID and name, the number of campuses occupied by
+              the departments of each Division and the number of
+              departments contained in the Division.<br>
+              <br>
+            </li>
+            <li>(5 marks) Create view LAB1_B that lists for each
+              building: building name, campus, the number of rooms in
+              the building, the total unoccupied office space (<b>in </b><b>square
+
+                metres</b>), <font size="+1">the combined Lab and
+                Technical space, the unoccupied office space on the
+                second floor (<b>in </b><b>square metres</b>), </font>
+              and the total room space (<b>in square metres</b>) of the
+              entire building. The first few rows of output for your
+              query should look like this:<br>
+              <br>
+              <b><tt>BUILDING_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                  CAMPUS &nbsp;&nbsp;&nbsp; &nbsp; ROOMS&nbsp; </tt></b><b><tt><font size="+1"><b><tt>UNOCCUPIED&nbsp;&nbsp;
+                        LAB_AND_TECH&nbsp;&nbsp; </tt></b></font></tt></b><b><tt><font size="+1"><b><tt><font size="+1"><b><tt>UNOCCUPIED_2ND
+
+
+                              &nbsp; </tt></b></font></tt></b></font>TOTAL_SPACE</tt></b><b><tt><br>
+                  Administration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                  Downtown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 120.77&nbsp; &nbsp;
+                  &nbsp;</tt></b><b><tt><font size="+1"><b><tt>&nbsp;
+                        &nbsp;&nbsp; 0.00&nbsp; &nbsp;&nbsp; &nbsp;</tt></b></font>&nbsp;
+
+
+
+                  &nbsp; 92.90 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  1523.61<br>
+                  Curie Radio Research Lab&nbsp;
+                  East&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00&nbsp;
+                  &nbsp; &nbsp;</tt></b><b><tt><font size="+1"><b><tt>&nbsp;
+
+
+
+                        &nbsp;&nbsp; 0.00&nbsp; &nbsp;&nbsp; &nbsp;</tt></b></font>&nbsp;
+
+
+
+                  &nbsp;&nbsp; 0.00&nbsp; &nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 650.32<br>
+                  Downtown
+                  Facilities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Downtown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00&nbsp;
+                  &nbsp; </tt></b><b><tt><font size="+1"><b><tt>&nbsp;&nbsp;&nbsp;
+
+
+
+                        520.26&nbsp; &nbsp;&nbsp; &nbsp;</tt></b></font>&nbsp;
+
+
+
+                  &nbsp;&nbsp; 0.00&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp; 752.51<br>
+                  Einstein
+                  Complex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  North West&nbsp;&nbsp;&nbsp;&nbsp;
+                  1&nbsp;&nbsp;&nbsp;&nbsp; 1858.06&nbsp; &nbsp; &nbsp;</tt></b><b><tt><font size="+1"><b><tt>&nbsp; &nbsp;&nbsp; 0.00&nbsp;
+                        &nbsp;&nbsp; &nbsp;</tt></b></font>&nbsp; </tt></b><b><tt><font size="+1"><b><tt>&nbsp;&nbsp; 0.00&nbsp; &nbsp;
+                        &nbsp;</tt></b><b><tt><font size="+1"><b><tt>&nbsp;
+
+                              &nbsp;&nbsp; </tt></b></font></tt></b></font>1858.06<br>
+                  Fermi
+                  Offices&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                  Downtown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00&nbsp;
+                  &nbsp; &nbsp;</tt></b><b><tt><font size="+1"><b><tt>&nbsp;
+
+
+
+                        &nbsp;&nbsp; 0.00&nbsp; &nbsp;&nbsp; &nbsp;</tt></b></font>&nbsp;
+
+
+
+                  &nbsp;&nbsp;
+                  0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp; 325.16<br>
+                  Feynman
+                  Lab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                  Central City&nbsp; 14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  157.94&nbsp; &nbsp; &nbsp;</tt></b><b><tt><font size="+1"><b><tt>&nbsp; &nbsp;&nbsp; 0.00&nbsp;
+                        &nbsp;&nbsp; &nbsp;</tt></b></font>&nbsp; &nbsp;
+                  65.03 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  1077.68<br>
+                </tt></b><tt><b>...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+                </b></tt><font size="+1"><tt><b>...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+                  </b></tt></font><font size="+1"><tt><b>...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                  </b></tt></font><font size="+1"><tt><b>...&nbsp;</b></tt></font><font size="+1"><font size="+1"><tt><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+                    </b></tt></font><font size="+1"><tt><b>...</b></tt></font></font><font size="+1"><font size="+1"><tt><b>&nbsp; &nbsp; &nbsp; </b></tt></font></font><font size="+1"><font size="+1"><tt><b><font size="+1"><b><tt>&nbsp;
+
+
+                            &nbsp;&nbsp;&nbsp; ...&nbsp; &nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;</tt></b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                    </b></tt></font><font size="+1"><tt><b>...</b></tt></font></font><br>
+              <br>
+              <b>Hint</b>: Use the DECODE function to help you figure
+              out categories of office spaces.<br>
+              <br>
+              Notes:<br>
+              <b>-</b> <b>Be sure to name th</b><b>e columns of your
+                view <u>EXACTLY</u> as I have named them in the above
+                output.<br>
+                - </b>The conversion factor square feet to square
+              metres is <i>0.09290304</i> square metres per square
+              foot.&nbsp; <br>
+            </li>
+          </ul>
+        </ul>
+        <ol start="3">
+          <li> (2 marks) The organization has decided to change the room
+            numbers associated with all ground-floor Rooms (Rooms that
+            have a ROOM_NO starting with a one - '1') on the <i>East</i>
+            and <i>North West</i> campuses so that the ROOM_NO will now
+            be prefixed with the letter 'G' to indicate that it is a
+            ground-floor Room. For example, ROOM_NO '101' in any <i>East</i>
+            or <font size="+1"><i>North West </i></font>building would
+            become 'G101' and ROOM_NO '105B' in any <i>East</i> <font size="+1"> and <i>North West</i> </font>campus building
+            would become 'G105B'. Update the database to reflect this
+            new organizational requirement.</li>
+        </ol>
+      </font><br>
+    </font><font size="+1">
+      <ol start="1" type="1">
+      </ol>
+    </font>
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
